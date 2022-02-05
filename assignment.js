@@ -1,13 +1,20 @@
 // Prob 1: anaToVori
-/* function anaToVori(ana) {
+function anaToVori(ana) {
 
+    if (ana < 0) {
+        return 'Please give a real number!';
+    }
     let vori = ana / 16;
     return vori;
 }
-console.log(anaToVori(50)); */
+console.log(anaToVori(32));
 
-//Prob 2: pandaCost
-/* function pandaCost(singaraQuantity, shomusaQuantity, jilapiQuantity) {
+// Prob 2: pandaCost
+function pandaCost(singaraQuantity, shomusaQuantity, jilapiQuantity) {
+
+    if (singaraQuantity < 0 || shomusaQuantity < 0 || jilapiQuantity < 0) {
+        return 'Please enter a valid number!';
+    }
 
     const perSingaraCost = 7;
     const perShomusaCost = 10;
@@ -21,17 +28,21 @@ console.log(anaToVori(50)); */
 
     return totalCost;
 }
-console.log(pandaCost(1, 1, 1)); */
+console.log(pandaCost(1, 1, 1));
 
 // prob 3: picnicBudget
 
-/* function picnicBudget(number) {
+function picnicBudget(number) {
 
     const spendingsFirst100 = 5000;
     const spendingsSecond100 = 4000;
     const spendingsRest = 3000;
 
-    if (number <= 100) {
+    if (number < 0) {
+        return 'Please enter the correct number of people';
+    }
+
+    else if (number <= 100) {
         let priceCount = number * spendingsFirst100;
         return priceCount;
     }
@@ -49,18 +60,22 @@ console.log(pandaCost(1, 1, 1)); */
         let restNumber = number - 200;
         let priceCountRest = restNumber * spendingsRest;
         let totalCost = priceCountFirst100 + priceCountSecond100 + priceCountRest;
-        console.log(totalCost);
 
         return totalCost;
     }
 }
-console.log(picnicBudget(204)); */
+console.log(picnicBudget(201));
 
 // Prob 4: oddFriend
 
 const friends = ['CR7', 'LM10', 'M7', 'RL9', 'MS11', 'SM10', 'EH9', 'NJ10', 'AB1'];
-
 function oddFriend(friends) {
+
+    console.log(typeof friends);
+
+    if (typeof friends != "object") {
+        return 'Please find your mistakes!';
+    }
 
     let oddNames = [];
     for (let i = 0; i < friends.length; i++) {
@@ -68,6 +83,7 @@ function oddFriend(friends) {
 
         if (names.length % 2 != 0) {
             oddNames.push(names);
+            break;
         }
     }
     return oddNames;
